@@ -31,20 +31,7 @@ There are 2 plans available:
 * Ephemeral (default): deploys 3 Galera MySQL replicas with ephemeral storage, i.e. no storage persistence: when the container stops its data is lost.
 * Persistent: deploys 3 Galera MySQL replicas with persistent storage. The storage is allocated via a Persistent Volume Claim of `volume_size`.
 
-## Running the application
+## References
 
-You need to provide the OpenShift API URL and authentication token, as well as the target namespace:
-
-    docker run --rm --net=host -v $HOME/.kube:/opt/apb/.kube:z -u $UID docker.io/ansibleplaybookbundle/galera-apb provision
-
-You can pass additional parameters to `ansible-playbook` by adding them at the end; for example, you can request more verbose output with one or more `-v` and pass additional variables with `--extra-vars`.
-
-For example, this will request a *prod* plan and specify a custom database name and volume size:
-
-    docker run --rm --net=host -v $HOME/.kube:/opt/apb/.kube:z -u $UID docker.io/ansibleplaybookbundle/galera-apb provision \
-       --extra-vars mysql_database=prod --extra-vars _apb_plan_id=prod --extra-vars volume_size=2Gi
-    
-
-## Tearing down the application
-
-    docker run --rm --net=host -v $HOME/.kube:/opt/apb/.kube:z -u $UID docker.io/ansibleplaybookbundle/galera-apb deprovision
+- [APB Doc Repo](https://github.com/ansibleplaybookbundle/ansible-playbook-bundle)
+- [APB Base Repo](https://github.com/ansibleplaybookbundle/apb-base)
