@@ -1,4 +1,4 @@
-FROM ansibleplaybookbundle/apb-base
+FROM ansibleplaybookbundle/apb-base:galaxy
 
 LABEL "com.redhat.apb.spec"=\
 "dmVyc2lvbjogMS4wCm5hbWU6IGdhbGVyYS1yZXBsaWNhdGlvbi1hcGIKZGVzY3JpcHRpb246IERl\
@@ -57,7 +57,18 @@ ZTogdm9sdW1lX3NpemUKICAgICAgICB0eXBlOiBlbnVtCiAgICAgICAgZGVmYXVsdDogJzFHaScK\
 ICAgICAgICBlbnVtOiBbJzFHaScsICc1R2knLCAnMTBHaSddCiAgICAgICAgdGl0bGU6IE15U1FM\
 IFZvbHVtZSBTaXplCiAgICAgICAgcmVxdWlyZWQ6IHRydWU="
 
-COPY playbooks /opt/apb/actions
+
+#RUN yum install -y iptables && yum clean all
+
+ENV APB_ACTION_PATH="galera-ansible/playbooks/main.yml"
 COPY roles /opt/ansible/roles
-RUN chmod -R g=u /opt/{ansible,apb}
+COPY requirements.yml /opt/ansible/requirements.yml
+COPY inventory /etc/ansible/hosts
+COPY playbooks /opt/apb/actions
+
+RUN ansible-galaxy -vv install -r /opt/ansible/requirements.yml
+RUN chmod -R g=u /opt/{ansible,apb} /etc/ansible/roles
+
 USER apb
+
+
