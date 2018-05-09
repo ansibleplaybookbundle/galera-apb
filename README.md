@@ -4,7 +4,7 @@ galera-apb
 An Ansible Playbook Bundle (APB) to deploy a [Galera Cluster for MySQL](http://galeracluster.com).
 
 ## What it does
-* It deploys a Galera server using a [derived CentOS image](https://github.com/beekhof/rss-operator/blob/master/apps/galera/Dockerfile)
+* It deploys a Galera server using a [derived CentOS image](https://github.com/beekhof/galera-container/blob/master/Dockerfile)
 
 ## Requirements
 * N/A
