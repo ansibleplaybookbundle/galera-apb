@@ -1,0 +1,16 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: galera-apb
+spec:
+  clusterServiceClassExternalName: dh-galera-apb
+  clusterServicePlanExternalName: (Plans->|ephemeral|persistent)
+  parameters:
+    admin_password: developer
+    admin_user: default
+    mysql_database: sample
+    mysql_password: admin
+    mysql_user: admin
+    service_name: galera
+    service_replicas: 3
+    volume_size: 1Gi
