@@ -1,10 +1,10 @@
 version: 1.0
-name: galera-replication-apb
+name: galera-apb
 description: Deploy Galera with a Replication Operator
 bindable: True
 async: optional
 metadata:
-  displayName: replication
+  displayName: galera
 plans:
   - name: ephemeral
     description: This plan deploys an ephemeral Galera cluster on Linux
@@ -15,12 +15,13 @@ plans:
         title: Openshift Admin User
         type: string
         default: developer
-        #required: true
+        required: true
       - name: admin_password
         title: Openshift Admin Password
         type: string
         display_type: password
         default: password
+        required: true
       - name: service_name
         description: The name of the service. Used to name and label resources
         type: string
@@ -31,6 +32,7 @@ plans:
         title: Number of database replicas
         type: number
         default: 3
+        required: true
       - name: mysql_database
         description: The name of the MySQL database
         type: string
