@@ -62,10 +62,8 @@ OiB0cnVlCg=="
 #RUN yum install -y iptables && yum clean all
 
 ENV APB_ACTION_PATH="galera-ansible/playbooks/main.yml"
-COPY roles /opt/ansible/roles
 COPY requirements.yml /opt/ansible/requirements.yml
 COPY inventory /etc/ansible/hosts
-COPY playbooks /opt/apb/actions
 
 RUN ansible-galaxy -vv install -r /opt/ansible/requirements.yml
 RUN chmod -R g=u /opt/{ansible,apb} /etc/ansible/roles
