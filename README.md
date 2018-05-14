@@ -31,6 +31,27 @@ There are 2 plans available:
 * Ephemeral (default): deploys 3 Galera MySQL replicas with ephemeral storage, i.e. no storage persistence: when the container stops its data is lost.
 * Persistent: deploys 3 Galera MySQL replicas with persistent storage. The storage is allocated via a Persistent Volume Claim of `volume_size`.
 
+
+https://hub.docker.com/r/ansibleplaybookbundle/galera-apb/
+
+## How to use:
+
+#### Deploy from the CLI
+
+1) Edit ```templates/galera-apb.yml``` and set ```admin_user``` and ```admin_password``` credentials that have cluster-admin permission.
+2) Deploy from command line:
+
+```
+kubectl create -f templates/galera-apb.yml
+```
+
+#### Deploy from the UI
+
+![Screenshot](images/galera-1.png)
+
+
+![Screenshot](images/galera-2.png)
+
 ## References
 
 - [APB Doc Repo](https://github.com/ansibleplaybookbundle/ansible-playbook-bundle)
