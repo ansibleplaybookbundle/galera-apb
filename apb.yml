@@ -1,10 +1,15 @@
 version: 1.0
 name: galera-apb
-description: Deploy Galera with a Replication Operator
+description: Deploy Galera for MySQL with a Replication Operator
 bindable: True
 async: optional
 metadata:
-  displayName: galera
+  displayName: Galera Cluster for MySQL
+  documentationUrl: "https://github.com/beekhof/galera-container/"
+  longDescription: "An Ansible Playbook Bundle (APB) that deploys a Galera cluster for MySQL managed by a replication operator"
+tags:
+  - database
+  - galera
 plans:
   - name: ephemeral
     description: This plan deploys an ephemeral Galera cluster on Linux
